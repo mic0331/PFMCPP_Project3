@@ -57,59 +57,59 @@ Thing: Car Wash
  */
 
 /*
-Thing 1)
+Thing 1) Dishwasher
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) power consumption
+    2) input voltage
+    3) eco rating (EU)
+    4) amount of water used
+    5) capacity
 3 things it can do:
-    1)
-    2)
-    3)
+    1) wash disches
+    2) inform the user when the job is compte
+    3) lock the door
  */
 
 /*
-Thing 2)
+Thing 2) vaccum cleaner
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) amount of kilograms for it's weight
+    2) the level of noise
+    3) the suction power
+    4) the lenght of the cord
+    5) Usability over both carpet and hard surfaces :-)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) dust collect
+    2) retract cord
+    3) inform user when full
  */
 
 /*
-Thing 3)
+Thing 3) Bicycle
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of gears
+    2) type
+    3) speed
+    4) cadence
+    5) color
 3 things it can do:
-    1)
-    2)
-    3)
+    1) cycle at a certain speed
+    2) turn left or right
+    3) break
  */
 
 /*
-Thing 4)
+Thing 4) Truck
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of axles
+    2) type of engine
+    3) color
+    4) speed limit
+    5) weight
 3 things it can do:
-    1)
-    2)
-    3)
+    1) fit trailer
+    2) move a certain quantity of goods
+    3) drive at a certain speed
  */
 
 
