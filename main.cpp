@@ -36,51 +36,51 @@ Sub Object 1: Steering Wheel
     Name 4 things you'll find on the:    Steering Wheel
         1) paddle shifters
         2) 'cruise control' controls
-        3) 
-        4) 
+        3) 'phone control' controls
+        4) 'sound volume control' controls
     Name 2 things you can do with the:   Steering Wheel
         1) adjust cruise control settings.
-        2)
+        2) adjust the sound volume
         
 Sub Object 2: Instrument Cluster
     Name 4 things you'll find on the:   Instrument Cluster
-        1)
-        2)
-        3)
-        4)
+        1) fuel gauge meter
+        2) acceleration meter
+        3) speed meter
+        4) gear indicator
     Name 3 things you can do with the:   Instrument Cluster
-        1)
-        2)
-        3)
+        1) monitor speed
+        2) monitor the fuel level
+        3) monitor the gear position
     
 Sub Object 3: Environment Controls
     Name 3 things you'll find on the:    Environment Controls
-        1)
-        2)
-        3)
+        1) air conditioning control
+        2) heat seat control
+        3) light condition control
     Name 3 things you can do with the:   Environment Controls
-        1)
-        2)
-        3)
+        1) heat the air environment
+        2) heat the passenger seat
+        3) decrease the lighting of the instrument cruiser
 
 Sub Object 4: Infotainment System
     Name 3 things you'll find on the:    Infotainment System
-        1)
-        2)
-        3)
+        1) radio station selector
+        2) navigation system
+        3) mp3 player
     Name 3 things you can do with the:   Infotainment System
-        1)
-        2)
-        3)
+        1) select a ratio station
+        2) plan a road trip
+        3) select an mp3 sound
 
 Sub Object 5: Seat 
     Name 3 things you'll find on the:    Seat
-        1)
-        2)
-        3)
+        1) height adjustment control
+        2) length adjustment control
+        3) back angle adjustment control
     Name 2 things you can do with the:   Seat
-        1)
-        2)
+        1) ajust the height of the seat
+        2) move the seat closer to the stearing wheel
 */
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
