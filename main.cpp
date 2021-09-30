@@ -65,17 +65,17 @@ Part1 will be broken up into 5 separate steps
 */
 
 /*
-Thing 10)
+Thing 10) Computer
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Keyboard
+    2) Display
+    3) Bettery
+    4) Operating system
+    5) Memory
 3 things it can do:
-    1)
-    2)
-    3)
+    1) compile C++ code
+    2) run productivity applications
+    3) connect peripherals
  */
 
 
