@@ -426,9 +426,9 @@ struct Computer
     OperatingSystem os;
     Memory memory;
 
-    bool compileCode(Memory memory, std::string codeLanguage = "c++");
-    bool runProductivityApp(OperatingSystem supportedOperatingSystem, std::string applicationName);
-    bool connectPeripherals(Keyboard keyboard);
+    bool compileCode(int memorySize, std::string codeLanguage = "c++");
+    bool runProductivityApp(std::string supportedOperatingSystem, std::string applicationName);
+    bool connectPeripherals(std::string peripheralName);
 };
 
 /*
