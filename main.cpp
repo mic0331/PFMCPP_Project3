@@ -108,8 +108,54 @@ struct CarWash
     You'll need to insert the Person struct from the video in the space below.
  */
 
+struct Person
+{
+    int age;
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTraveled;
 
+    void run(int howFast, bool startWithLeftFoot);
+};
 
+struct Foot
+{
+    int size = 100;
+    std::string currentPosition;
+    
+    void stepForward();
+    int setSize();
+};
+
+void Foot::stepForward()
+{
+    currentPosition = "Forward";
+}
+
+int Foot::setSize()
+{
+    return size;
+}
+
+void Person::run(int howFast, bool startWithLeftFoot)
+{
+    Foot leftFoot;
+    Foot rightFoot;
+    howFast = 25;
+    if(startWithLeftFoot)
+    {
+        leftFoot.stepForward();
+        rightFoot.stepForward();
+    } 
+    else
+    {
+        rightFoot.stepForward();
+        leftFoot.stepForward();
+    }
+    distanceTraveled += leftFoot.setSize() + rightFoot.setSize();
+}
 
 
  /*
@@ -126,20 +172,6 @@ struct CarWash
  */
 
 
-
-/*
-Thing 1) Dishwasher
-5 properties:
-    1) power consumption (double)
-    2) input voltage (double)
-    3) eco rating (EU) (int)
-    4) amount of water used (int)
-    5) capacity (int)
-3 things it can do:
-    1) wash disches
-    2) inform the user when the job is compte
-    3) lock the door
- */
 
 struct Dishwasher
 {
@@ -162,10 +194,25 @@ struct Dishwasher
         void cookFood(std::string foodType);
     };
 
-    void washDishes(Dish dish);
+    void washDishes(int time);
     void informUser();
     bool lockDoor();
 };
+
+void Dishwasher::washDishes(int time)
+{
+    std::cout << "clean dishes for some time " << time;
+}
+
+void Dishwasher::informUser()
+{
+    std::cout << "job finished !";
+}
+
+bool Dishwasher::lockDoor()
+{
+    return true;
+}
 
 /*
 Thing 2) vaccum cleaner
@@ -194,19 +241,24 @@ struct VaccumCleaner
     std::string informUserWhenFull();
 };
 
-/*
-Thing 3) Bicycle
-5 properties:
-    1) number of gears (int)
-    2) type (std::string)
-    3) speed (int)
-    4) cadence (std::string)
-    5) color (std::string)
-3 things it can do:
-    1) cycle at a certain speed
-    2) turn left or right
-    3) break
- */
+void VaccumCleaner::dustCollect(int dustQuantity, int time)
+{
+    if (dustQuantity != 0) {
+        dustQuantity -= 1;
+        time -= 1;
+    }
+}
+
+bool VaccumCleaner::retractCord(int cordDistance)
+{
+    if (cordLength == 0)
+        return false;
+    else
+    {
+        cordLength -= cordDistance;
+        return true;
+    }
+}
 
  struct Bicycle
  {
@@ -227,24 +279,21 @@ Thing 3) Bicycle
         void listenMusic(std::string musicType);
     };
 
-    void cycleAtSpeed(Person person, int speed);
-    bool turn(Person person, std::string direction = "left");
+    void cycleAtSpeed(int speed);
+    bool turn(std::string direction = "left");
     bool useBreak();
  };
 
-/*
-Thing 4) Truck
-5 properties:
-    1) number of axles (int)
-    2) type of engine (std:string)
-    3) color (std::string)
-    4) speed limit (int)
-    5) weight (double)
-3 things it can do:
-    1) fit trailer
-    2) move a certain quantity of goods
-    3) drive at a certain speed
- */
+ void Bicycle::cycleAtSpeed(int s)
+ {
+    speed = s;
+ }
+
+ bool Bicycle::turn(std::string direction)
+ {
+    direction = "neutral";
+    return true;
+ }
 
  struct Truck
  {
@@ -259,19 +308,12 @@ Thing 4) Truck
     void drive(int speed, int distance);
  };
 
- /*
-Thing 5) Keyboard
-5 properties:
-    1) Number of keys (int)
-    2) key travelling distance (float)
-    3) Amount of Power consumed (milliwatt-hours) (int)
-    4) width in mm (int)
-    5) height in mm (int)
-3 things it can do:
-    1) encode ASCII character
-    2) send character signal
-    3) connect to the motherboard
- */
+ void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
+ {
+    if (trailerType == "long" && trailerLegnth > 100)
+        speedLimit = 50;
+    // do some other stuff ...
+ }
 
  struct Keyboard
  {
@@ -286,19 +328,17 @@ Thing 5) Keyboard
     bool connectToMotherBoard(std::string connectorType = "GPIO");
  };
 
-/*
-Thing 6) Display
-5 properties:
-    1) Number of Pixels (int)
-    2) Amount of Power consumed (milliwatt-hours) (float)
-    3) Brightness (double)
-    4) width in cm (int)
-    5) height in cm (int)
-3 things it can do:
-    1) display text
-    2) regulate brightness
-    3) connect to the motherboard
- */
+ void Keyboard::encodeASCII(std::string character)
+ {
+    if (character == "x")
+       numberOfKeys = 250;
+ }
+
+ bool Keyboard::sendCharacterSignal()
+ {
+     power += 1;
+     return true;
+ }
 
 struct Display
 {
@@ -309,23 +349,20 @@ struct Display
     int height = 100;
 
     void displayText(std::string text);
-    bool regulatBrightness(int brightnessLevel);
+    bool regulatBrightness(double brightnessLevel);
     bool connectToMotherBoard(std::string connectorType = "HDMI");
 };
 
-/*
-Thing 7) Bettery
-5 properties:
-    1) voltage (float)
-    2) discharge time (double)
-    3) capacity (double)
-    4) power density (double)
-    5) surface area in mm^2 (float)
-3 things it can do:
-    1) charge
-    2) discharge
-    3) monitor it's capacity
- */
+void Display::displayText(std::string text) 
+{
+    std::cout << text;
+}
+
+bool Display::regulatBrightness(double brightnessLevel)
+{
+    bightness += brightnessLevel;
+    return true;
+}
 
  struct Battery 
  {
@@ -337,22 +374,26 @@ Thing 7) Bettery
 
     void charge(int time);
     void discharge(int time);
-    void monitorCapacity(bool inforUser = false);
+    void monitorCapacity(bool informUser = false);
  };
 
-/*
-Thing 8) Operating system
-5 properties:
-    1) number of multitaking operation (long)
-    2) build number (str::string)
-    3) version (str::string)
-    4) name (str::string)
-    5) provider (str::string)
-3 things it can do:
-    1) run application
-    2) install application
-    3) uninstall application
- */
+ void Battery::charge(int time)
+ {
+    dischargeTime += 1;
+    time += 1;
+ }
+
+ void Battery::discharge(int time)
+ {
+    dischargeTime -= 1;
+    time -= 1;
+ }
+
+ void Battery::monitorCapacity(bool informUser)
+ {
+    if (informUser)
+        std::cout << "Regarded " << capacity;
+ }
 
  struct OperatingSystem
  {
@@ -367,19 +408,22 @@ Thing 8) Operating system
     bool uninstallApplication(std::string appName);
  };
 
-/*
-Thing 9) Memory
-5 properties:
-    1) capacity (int)
-    2) access method (str::string)
-    3) unit of transfer (str::string)
-    4) lenght (int)
-    5) performance (int)
-3 things it can do:
-    1) load data
-    2) offload data
-    3) access memory block
- */
+ void OperatingSystem::runApplication(std::string applicationName)
+ {
+    std::cout << "Run : " << applicationName;
+ }
+
+ bool OperatingSystem::installApplication(std::string appName)
+ {
+    std::cout << "Install : " << appName;
+    return true;
+ }
+
+ bool OperatingSystem::uninstallApplication(std::string appName)
+ {
+    std::cout << "Uninstall : " << appName;
+    return false;
+ }
 
 struct Memory
 {
@@ -394,19 +438,22 @@ struct Memory
     int accessMemoryBlock(int blockLocation);
 };
 
-/*
-Thing 10) Computer
-5 properties:
-    1) Keyboard
-    2) Display
-    3) Bettery
-    4) Operating system
-    5) Memory
-3 things it can do:
-    1) compile C++ code
-    2) run productivity applications
-    3) connect peripherals
- */
+void Memory::loadData(int amountOfData)
+{
+    std::cout << "Load data : " << amountOfData;
+}
+
+void Memory::offloadData(int amountOfData, bool writeToSWAP)
+{
+    std::cout << "Offload data : " << amountOfData << "and in swap? " << writeToSWAP;
+}
+
+int Memory::accessMemoryBlock(int blockLocation)
+{
+    std::cout << "Access memory block : " << blockLocation;
+    return capacity;
+}
+
 
 struct Computer
 {
@@ -420,6 +467,24 @@ struct Computer
     bool runProductivityApp(std::string supportedOperatingSystem, std::string applicationName);
     bool connectPeripherals(std::string peripheralName);
 };
+
+bool Computer::compileCode(int memorySize, std::string codeLanguage)
+{
+    std::cout << "Compile code for " << codeLanguage << " of size " << memorySize;
+    return true;
+}
+
+bool Computer::runProductivityApp(std::string supportedOperatingSystem, std::string applicationName)
+{
+    std::cout << "Run porductivity app for " << supportedOperatingSystem << " with name " << applicationName;
+    return true;
+}
+
+bool Computer::connectPeripherals(std::string peripheralName)
+{
+    std::cout << "Connect peripheral " << peripheralName;
+    return false;
+}
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
