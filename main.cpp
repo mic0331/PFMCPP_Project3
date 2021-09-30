@@ -65,6 +65,62 @@ Part1 will be broken up into 5 separate steps
 */
 
 /*
+Thing 1) Dishwasher
+5 properties:
+    1) power consumption (double)
+    2) input voltage (double)
+    3) eco rating (EU) (int)
+    4) amount of water used (int)
+    5) capacity (int)
+3 things it can do:
+    1) wash disches
+    2) inform the user when the job is compte
+    3) lock the door
+ */
+
+/*
+Thing 2) vaccum cleaner
+5 properties:
+    1) amount of kilograms for it's weight (int)
+    2) the level of noise (int)
+    3) the suction power (int)
+    4) the lenght of the cord (int)
+    5) Usability over both carpet and hard surfaces :-) (std:string)
+3 things it can do:
+    1) dust collect
+    2) retract cord
+    3) inform user when full
+ */
+
+/*
+Thing 3) Bicycle
+5 properties:
+    1) number of gears (int)
+    2) type (std:string)
+    3) speed (int)
+    4) cadence (std:string)
+    5) color (std:string)
+3 things it can do:
+    1) cycle at a certain speed
+    2) turn left or right
+    3) break
+ */
+
+/*
+Thing 4) Truck
+5 properties:
+    1) number of axles (int)
+    2) type of engine (std:string)
+    3) color (std:string)
+    4) speed limit (int)
+    5) weight (double)
+3 things it can do:
+    1) fit trailer
+    2) move a certain quantity of goods
+    3) drive at a certain speed
+ */
+
+/*
 Thing 10) Computer
 5 properties:
     1) Keyboard
@@ -77,66 +133,6 @@ Thing 10) Computer
     2) run productivity applications
     3) connect peripherals
  */
-
-
-
-
-/*
-Thing 1) Dishwasher
-5 properties:
-    1) power consumption
-    2) input voltage
-    3) eco rating (EU)
-    4) amount of water used
-    5) capacity
-3 things it can do:
-    1) wash disches
-    2) inform the user when the job is compte
-    3) lock the door
- */
-
-/*
-Thing 2) vaccum cleaner
-5 properties:
-    1) amount of kilograms for it's weight
-    2) the level of noise
-    3) the suction power
-    4) the lenght of the cord
-    5) Usability over both carpet and hard surfaces :-)
-3 things it can do:
-    1) dust collect
-    2) retract cord
-    3) inform user when full
- */
-
-/*
-Thing 3) Bicycle
-5 properties:
-    1) number of gears
-    2) type
-    3) speed
-    4) cadence
-    5) color
-3 things it can do:
-    1) cycle at a certain speed
-    2) turn left or right
-    3) break
- */
-
-/*
-Thing 4) Truck
-5 properties:
-    1) number of axles
-    2) type of engine
-    3) color
-    4) speed limit
-    5) weight
-3 things it can do:
-    1) fit trailer
-    2) move a certain quantity of goods
-    3) drive at a certain speed
- */
-
 
 
 /*
