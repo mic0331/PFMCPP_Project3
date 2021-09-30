@@ -151,6 +151,32 @@ Thing 1) Dishwasher
     3) lock the door
  */
 
+struct Dishwasher
+{
+    double powerConsumption = 1200;
+    double inputVoltage = 220;
+    int ecoRating = 7;
+    int amountWaterUsed = 10;
+    int capacity = 10;
+
+    struct Dish
+    {
+        std::string dirtiness = "dirty";
+        int lenght = 10;
+        int height = 10;
+        std::string material = "glass";
+        std::string hardness = "soft";
+
+        void breakDown();
+        void supportHeat(int temperature);
+        void cookFood(std::string foodType);
+    };
+
+    void washDishes(Dish dish);
+    void informUser();
+    bool lockDoor();
+};
+
 /*
 Thing 2) vaccum cleaner
 5 properties:
@@ -158,33 +184,70 @@ Thing 2) vaccum cleaner
     2) the level of noise (int)
     3) the suction power (int)
     4) the lenght of the cord (int)
-    5) Usability over both carpet and hard surfaces :-) (std:string)
+    5) Usability over both carpet and hard surfaces :-) (std::string)
 3 things it can do:
     1) dust collect
     2) retract cord
     3) inform user when full
  */
 
+struct VaccumCleaner
+{
+    int weight = 5;
+    int noiseLevel = 100;
+    int suctionPower = 1400;
+    int cordLength = 2;
+    std::string usability = "good";
+
+    void dustCollect(int dustQuantity, int time);
+    bool retractCord(int cordDistance);
+    std::string informUserWhenFull();
+};
+
 /*
 Thing 3) Bicycle
 5 properties:
     1) number of gears (int)
-    2) type (std:string)
+    2) type (std::string)
     3) speed (int)
-    4) cadence (std:string)
-    5) color (std:string)
+    4) cadence (std::string)
+    5) color (std::string)
 3 things it can do:
     1) cycle at a certain speed
     2) turn left or right
     3) break
  */
 
+ struct Bicycle
+ {
+    int gear = 21;
+    std::string type = "road bike";
+    int speed = 5;
+    std::string cadance = "normal";
+    std::string color = "Red";
+
+    struct Person
+    {
+        std::string firstName = "Bob";
+        std::string lastName = "Sponge";
+        int age = 14;
+
+        bool useLeftFoot();
+        bool useRightFoot();
+        void listenMusic(std::string musicType);
+    };
+
+    void cycleAtSpeed(Person person, int speed);
+    bool turn(Person person, std::string direction = "left");
+    bool useBreak();
+ };
+
 /*
 Thing 4) Truck
 5 properties:
     1) number of axles (int)
     2) type of engine (std:string)
-    3) color (std:string)
+    3) color (std::string)
     4) speed limit (int)
     5) weight (double)
 3 things it can do:
@@ -193,12 +256,25 @@ Thing 4) Truck
     3) drive at a certain speed
  */
 
+ struct Truck
+ {
+    int numberOfAxle = 4;
+    std::string typeOfEngine = "diesel";
+    std::string color = "Pink";
+    int speedLimit = 90;
+    double weight = 1530.00;
+
+    void fitTrailer(std::string trailerType, int trailerLegnth);
+    bool moveFood(int quantity);
+    void drive(int speed, int distance);
+ };
+
  /*
 Thing 5) Keyboard
 5 properties:
     1) Number of keys (int)
-    2) key travelling distance (int)
-    3) Amount of Power consumed (milliwatt-hours)
+    2) key travelling distance (float)
+    3) Amount of Power consumed (milliwatt-hours) (int)
     4) width in mm (int)
     5) height in mm (int)
 3 things it can do:
@@ -206,6 +282,19 @@ Thing 5) Keyboard
     2) send character signal
     3) connect to the motherboard
  */
+
+ struct Keyboard
+ {
+    int numberOfKeys = 120;
+    float travellingDistance = 1.35f;
+    int power = 125;
+    int width = 128;
+    int height = 95;
+
+    void encodeASCII(std::string character);
+    bool sendCharacterSignal();
+    bool connectToMotherBoard(std::string connectorType = "GPIO");
+ };
 
 /*
 Thing 6) Display
@@ -221,19 +310,45 @@ Thing 6) Display
     3) connect to the motherboard
  */
 
+struct Display
+{
+    int numberPixels = 1800;
+    float powerConsumed = 180.f;
+    double bightness = 70;
+    int width = 250;
+    int height = 100;
+
+    void displayText(std::string text);
+    bool regulatBrightness(int brightnessLevel);
+    bool connectToMotherBoard(std::string connectorType = "HDMI");
+};
+
 /*
 Thing 7) Bettery
 5 properties:
-    1) voltage (double)
+    1) voltage (float)
     2) discharge time (double)
     3) capacity (double)
     4) power density (double)
-    5) surface area in mm^2 (double)
+    5) surface area in mm^2 (float)
 3 things it can do:
     1) charge
     2) discharge
     3) monitor it's capacity
  */
+
+ struct Battery 
+ {
+    float voltage = 4.7f;
+    double dischargeTime = 5;
+    double capacity = 150;
+    double powerDensity = 4870;
+    float surfaceArea = 150.75;
+
+    void charge(int time);
+    void discharge(int time);
+    void monitorCapacity(bool inforUser = false);
+ };
 
 /*
 Thing 8) Operating system
@@ -249,19 +364,45 @@ Thing 8) Operating system
     3) uninstall application
  */
 
+ struct OperatingSystem
+ {
+    long numberOfConcurrentTask = 15785;
+    std::string buildNumnber = "654f6";
+    std::string version = "Apha 4";
+    std::string name = "Windows";
+    std::string provider = "Micro$oft";
+
+    void runApplication(std::string applicationName);
+    bool installApplication(std::string appName);
+    bool uninstallApplication(std::string appName);
+ };
+
 /*
 Thing 9) Memory
 5 properties:
     1) capacity (int)
     2) access method (str::string)
     3) unit of transfer (str::string)
-    4) access method (str::string)
+    4) lenght (int)
     5) performance (int)
 3 things it can do:
     1) load data
     2) offload data
     3) access memory block
  */
+
+struct Memory
+{
+    int capacity = 1524556;
+    std::string accessMethod = "random access";
+    std::string unitOfTransfer = "256 bits";
+    int lenght = 100;
+    int performance = 150;
+
+    void loadData(int amountOfData);
+    void offloadData(int amountOfData, bool writeToSWAP = false);
+    int accessMemoryBlock(int blockLocation);
+};
 
 /*
 Thing 10) Computer
@@ -277,6 +418,18 @@ Thing 10) Computer
     3) connect peripherals
  */
 
+struct Computer
+{
+    Keyboard keyboard;
+    Display display;
+    Battery battery;
+    OperatingSystem os;
+    Memory memory;
+
+    bool compileCode(Memory memory, std::string codeLanguage = "c++");
+    bool runProductivityApp(OperatingSystem supportedOperatingSystem, std::string applicationName);
+    bool connectPeripherals(Keyboard keyboard);
+};
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
