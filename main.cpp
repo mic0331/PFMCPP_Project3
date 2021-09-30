@@ -80,78 +80,6 @@ Part1 will be broken up into 5 separate steps
 3) move Thing 5-9 to between your Thing 4 and Thing 10.
 */
 
-/*
-Thing 5)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 6)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 7)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 8)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 9)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-
-
 
 /*
 Thing 1) Dishwasher
@@ -207,6 +135,76 @@ Thing 4) Truck
     1) fit trailer
     2) move a certain quantity of goods
     3) drive at a certain speed
+ */
+
+ /*
+Thing 5) Keyboard
+5 properties:
+    1) Number of keys (int)
+    2) key travelling distance (int)
+    3) Amount of Power consumed (milliwatt-hours)
+    4) width in mm (int)
+    5) height in mm (int)
+3 things it can do:
+    1) encode ASCII character
+    2) send character signal
+    3) connect to the motherboard
+ */
+
+/*
+Thing 6) Display
+5 properties:
+    1) Number of Pixels (int)
+    2) Amount of Power consumed (milliwatt-hours) (float)
+    3) Brightness (double)
+    4) width in cm (int)
+    5) height in cm (int)
+3 things it can do:
+    1) display text
+    2) regulate brightness
+    3) connect to the motherboard
+ */
+
+/*
+Thing 7) Bettery
+5 properties:
+    1) voltage (double)
+    2) discharge time (double)
+    3) capacity (double)
+    4) power density (double)
+    5) surface area in mm^2 (double)
+3 things it can do:
+    1) charge
+    2) discharge
+    3) monitor it's capacity
+ */
+
+/*
+Thing 8) Operating system
+5 properties:
+    1) number of multitaking operation (long)
+    2) build number (str::string)
+    3) version (str::string)
+    4) name (str::string)
+    5) provider (str::string)
+3 things it can do:
+    1) run application
+    2) install application
+    3) uninstall application
+ */
+
+/*
+Thing 9) Memory
+5 properties:
+    1) capacity (int)
+    2) access method (str::string)
+    3) unit of transfer (str::string)
+    4) access method (str::string)
+    5) performance (int)
+3 things it can do:
+    1) load data
+    2) offload data
+    3) access memory block
  */
 
 /*
