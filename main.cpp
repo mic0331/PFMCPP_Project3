@@ -258,8 +258,8 @@ bool VaccumCleaner::retractCord(int cordDistance)
     return true;
 }
 
- struct Bicycle
- {
+struct Bicycle
+{
     int gear = 21;
     std::string type = "road bike";
     int speed = 5;
@@ -280,21 +280,21 @@ bool VaccumCleaner::retractCord(int cordDistance)
     void cycleAtSpeed(int speed);
     bool turn(std::string direction = "left");
     bool useBreak();
- };
+};
 
- void Bicycle::cycleAtSpeed(int s)
- {
+void Bicycle::cycleAtSpeed(int s)
+{
     speed = s;
- }
+}
 
- bool Bicycle::turn(std::string direction)
- {
+bool Bicycle::turn(std::string direction)
+{
     direction = "neutral";
     return true;
- }
+}
 
- struct Truck
- {
+struct Truck
+{
     int numberOfAxle = 4;
     std::string typeOfEngine = "diesel";
     std::string color = "Pink";
@@ -304,17 +304,17 @@ bool VaccumCleaner::retractCord(int cordDistance)
     void fitTrailer(std::string trailerType, int trailerLegnth);
     bool moveFood(int quantity);
     void drive(int speed, int distance);
- };
+};
 
- void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
- {
+void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
+{
     if (trailerType == "long" && trailerLegnth > 100)
         speedLimit = 50;
     // do some other stuff ...
- }
+}
 
- struct Keyboard
- {
+struct Keyboard
+{
     int numberOfKeys = 120;
     float travellingDistance = 1.35f;
     int power = 125;
@@ -324,19 +324,19 @@ bool VaccumCleaner::retractCord(int cordDistance)
     void encodeASCII(std::string character);
     bool sendCharacterSignal();
     bool connectToMotherBoard(std::string connectorType = "GPIO");
- };
+};
 
- void Keyboard::encodeASCII(std::string character)
- {
-    if (character == "x")
-        numberOfKeys = 250;
- }
+void Keyboard::encodeASCII(std::string character)
+{
+if (character == "x")
+    numberOfKeys = 250;
+}
 
- bool Keyboard::sendCharacterSignal()
- {
+bool Keyboard::sendCharacterSignal()
+{
     power += 1;
     return true;
- }
+}
 
 struct Display
 {
@@ -362,8 +362,8 @@ bool Display::regulatBrightness(double brightnessLevel)
     return true;
 }
 
- struct Battery 
- {
+struct Battery 
+{
     float voltage = 4.7f;
     double dischargeTime = 5;
     double capacity = 150;
@@ -373,28 +373,28 @@ bool Display::regulatBrightness(double brightnessLevel)
     void charge(int time);
     void discharge(int time);
     void monitorCapacity(bool informUser = false);
- };
+};
 
- void Battery::charge(int time)
- {
+void Battery::charge(int time)
+{
     dischargeTime += 1;
     time += 1;
- }
+}
 
- void Battery::discharge(int time)
- {
+void Battery::discharge(int time)
+{
     dischargeTime -= 1;
     time -= 1;
- }
+}
 
- void Battery::monitorCapacity(bool informUser)
- {
+void Battery::monitorCapacity(bool informUser)
+{
     if (informUser)
         std::cout << "Regarded " << capacity;
- }
+}
 
- struct OperatingSystem
- {
+struct OperatingSystem
+{
     long numberOfConcurrentTask = 15785;
     std::string buildNumnber = "654f6";
     std::string version = "Apha 4";
@@ -404,24 +404,24 @@ bool Display::regulatBrightness(double brightnessLevel)
     void runApplication(std::string applicationName);
     bool installApplication(std::string appName);
     bool uninstallApplication(std::string appName);
- };
+};
 
- void OperatingSystem::runApplication(std::string applicationName)
- {
+void OperatingSystem::runApplication(std::string applicationName)
+{
     std::cout << "Run : " << applicationName;
- }
+}
 
- bool OperatingSystem::installApplication(std::string appName)
- {
+bool OperatingSystem::installApplication(std::string appName)
+{
     std::cout << "Install : " << appName;
     return true;
- }
+}
 
- bool OperatingSystem::uninstallApplication(std::string appName)
- {
+bool OperatingSystem::uninstallApplication(std::string appName)
+{
     std::cout << "Uninstall : " << appName;
     return false;
- }
+}
 
 struct Memory
 {
