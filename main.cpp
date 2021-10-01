@@ -356,7 +356,7 @@ void Display::displayText(std::string text)
     std::cout << text;
 }
 
-bool Display::regulatebrightness(double brightnessLevel)
+bool Display::regulateBrightness(double brightnessLevel)
 {
     bightness += brightnessLevel;
     return true;
