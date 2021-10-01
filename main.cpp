@@ -108,18 +108,6 @@ struct CarWash
     You'll need to insert the Person struct from the video in the space below.
  */
 
-struct Person
-{
-    int age;
-    int height;
-    float hairLength;
-    float GPA;
-    unsigned int SATScore;
-    int distanceTraveled;
-
-    void run(int howFast, bool startWithLeftFoot);
-};
-
 struct Foot
 {
     int size = 100;
@@ -139,10 +127,22 @@ int Foot::setSize()
     return size;
 }
 
-void Person::run(int howFast, bool startWithLeftFoot)
+struct Person
 {
+    int age;
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTraveled;
     Foot leftFoot;
     Foot rightFoot;
+
+    void run(int howFast, bool startWithLeftFoot);
+};
+
+void Person::run(int howFast, bool startWithLeftFoot)
+{
     howFast = 25;
     if(startWithLeftFoot)
     {
@@ -243,7 +243,8 @@ struct VaccumCleaner
 
 void VaccumCleaner::dustCollect(int dustQuantity, int time)
 {
-    if (dustQuantity != 0) {
+    if (dustQuantity != 0) 
+    {
         dustQuantity -= 1;
         time -= 1;
     }
@@ -251,13 +252,10 @@ void VaccumCleaner::dustCollect(int dustQuantity, int time)
 
 bool VaccumCleaner::retractCord(int cordDistance)
 {
-    if (cordLength == 0)
+    if (cordLength == 0) 
         return false;
-    else
-    {
-        cordLength -= cordDistance;
-        return true;
-    }
+    cordLength -= cordDistance;
+    return true;
 }
 
  struct Bicycle
@@ -331,13 +329,13 @@ bool VaccumCleaner::retractCord(int cordDistance)
  void Keyboard::encodeASCII(std::string character)
  {
     if (character == "x")
-       numberOfKeys = 250;
+        numberOfKeys = 250;
  }
 
  bool Keyboard::sendCharacterSignal()
  {
-     power += 1;
-     return true;
+    power += 1;
+    return true;
  }
 
 struct Display
