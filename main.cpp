@@ -236,12 +236,12 @@ struct VaccumCleaner
     int cordLength = 2;
     std::string usability = "good";
 
-    void dustCollect(int dustQuantity, int time);
+    void collectDust(int dustQuantity, int time);
     bool retractCord(int cordDistance);
     std::string informUserWhenFull();
 };
 
-void VaccumCleaner::dustCollect(int dustQuantity, int time)
+void VaccumCleaner::collectDust(int dustQuantity, int time)
 {
     if (dustQuantity != 0) 
     {
@@ -347,7 +347,7 @@ struct Display
     int height = 100;
 
     void displayText(std::string text);
-    bool regulatBrightness(double brightnessLevel);
+    bool regulatebrightness(double brightnessLevel);
     bool connectToMotherBoard(std::string connectorType = "HDMI");
 };
 
@@ -356,7 +356,7 @@ void Display::displayText(std::string text)
     std::cout << text;
 }
 
-bool Display::regulatBrightness(double brightnessLevel)
+bool Display::regulatebrightness(double brightnessLevel)
 {
     bightness += brightnessLevel;
     return true;
