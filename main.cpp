@@ -347,7 +347,7 @@ struct Display
     int height = 100;
 
     void displayText(std::string text);
-    bool regulatebrightness(double brightnessLevel);
+    bool regulateBrightness(double brightnessLevel);
     bool connectToMotherBoard(std::string connectorType = "HDMI");
 };
 
