@@ -68,13 +68,10 @@ int main()
 
 //insert Example::main() into main() of user's repo.
 
-
-
-
-
-
 struct Dishwasher
 {
+    Dishwasher();
+
     double powerConsumption = 1200;
     double inputVoltage = 220;
     int ecoRating = 7;
@@ -99,14 +96,19 @@ struct Dishwasher
     bool lockDoor();
 };
 
+Dishwasher::Dishwasher()
+{
+    std::cout << "'Dishwasher' created" << std::endl;
+}
+
 void Dishwasher::washDishes(int time)
 {
-    std::cout << "clean dishes for some time " << time;
+    std::cout << "clean dishes for some time " << time << std::endl;
 }
 
 void Dishwasher::informUser()
 {
-    std::cout << "job finished !";
+    std::cout << "job finished !" << std::endl;;
 }
 
 bool Dishwasher::lockDoor()
@@ -114,22 +116,10 @@ bool Dishwasher::lockDoor()
     return true;
 }
 
-/*
-Thing 2) vaccum cleaner
-5 properties:
-    1) amount of kilograms for it's weight (int)
-    2) the level of noise (int)
-    3) the suction power (int)
-    4) the lenght of the cord (int)
-    5) Usability over both carpet and hard surfaces :-) (std::string)
-3 things it can do:
-    1) dust collect
-    2) retract cord
-    3) inform user when full
- */
-
 struct VaccumCleaner
 {
+    VaccumCleaner();
+    
     int weight = 5;
     int noiseLevel = 100;
     int suctionPower = 1400;
@@ -141,6 +131,11 @@ struct VaccumCleaner
     std::string informUserWhenFull();
 };
 
+VaccumCleaner::VaccumCleaner()
+{
+    std::cout << "'VaccumCleaner' created" << std::endl;
+}
+
 void VaccumCleaner::collectDust(int dustQuantity, int time)
 {
     if (dustQuantity != 0) 
@@ -148,6 +143,7 @@ void VaccumCleaner::collectDust(int dustQuantity, int time)
         dustQuantity -= 1;
         time -= 1;
     }
+    std::cout << "collectDust" << std::endl;
 }
 
 bool VaccumCleaner::retractCord(int cordDistance)
@@ -155,11 +151,20 @@ bool VaccumCleaner::retractCord(int cordDistance)
     if (cordLength == 0) 
         return false;
     cordLength -= cordDistance;
+    std::cout << "retractCord" << std::endl;
     return true;
+}
+
+std::string VaccumCleaner::informUserWhenFull()
+{
+    std::cout << "In'informUserWhenFull'" << std::endl;
+    return "hello";
 }
 
 struct Bicycle
 {
+    Bicycle();
+
     int gear = 21;
     std::string type = "road bike";
     int speed = 5;
@@ -182,19 +187,34 @@ struct Bicycle
     bool useBreak();
 };
 
+Bicycle::Bicycle()
+{
+    std::cout << "'Bicycle' created" << std::endl;
+}
+
 void Bicycle::cycleAtSpeed(int s)
 {
     speed = s;
+    std::cout << "cylce at speed" << std::endl;
 }
 
 bool Bicycle::turn(std::string direction)
 {
     direction = "neutral";
+    std::cout << "turn" << std::endl;
+    return true;
+}
+
+bool Bicycle::useBreak()
+{
+    std::cout << "useBreak" << std::endl;
     return true;
 }
 
 struct Truck
 {
+    Truck(); 
+
     int numberOfAxle = 4;
     std::string typeOfEngine = "diesel";
     std::string color = "Pink";
@@ -206,15 +226,34 @@ struct Truck
     void drive(int speed, int distance);
 };
 
+Truck::Truck()
+{
+    std::cout << "'Truck' created" << std::endl;
+}
+
 void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
 {
     if (trailerType == "long" && trailerLegnth > 100)
         speedLimit = 50;
+    std::cout << "fitTrailer" << std::endl;
     // do some other stuff ...
+}
+
+bool Truck::moveFood(int quantity)
+{
+    std::cout << "moveFood quantity " << quantity << std::endl;
+    return true;
+}
+
+void Truck::drive(int speed, int distance)
+{
+    std::cout << "drive at " << speed << "for " << distance << std::endl;
 }
 
 struct Keyboard
 {
+    Keyboard();
+
     int numberOfKeys = 120;
     float travellingDistance = 1.35f;
     int power = 125;
@@ -226,6 +265,11 @@ struct Keyboard
     bool connectToMotherBoard(std::string connectorType = "GPIO");
 };
 
+Keyboard::Keyboard()
+{
+    std::cout << "'Keyboard' created" << std::endl;
+}
+
 void Keyboard::encodeASCII(std::string character)
 {
 if (character == "x")
@@ -235,11 +279,20 @@ if (character == "x")
 bool Keyboard::sendCharacterSignal()
 {
     power += 1;
+    std::cout << "sendCharacterSignal" << std::endl;
+    return true;
+}
+
+bool Keyboard::connectToMotherBoard(std::string connectorType)
+{
+    std::cout << "connectToMotherBoard " << connectorType << std::endl;
     return true;
 }
 
 struct Display
 {
+    Display();
+
     int numberPixels = 1800;
     float powerConsumed = 180.f;
     double bightness = 70;
@@ -251,19 +304,34 @@ struct Display
     bool connectToMotherBoard(std::string connectorType = "HDMI");
 };
 
+Display::Display()
+{
+    std::cout << "'Display' created" << std::endl;
+}
+
 void Display::displayText(std::string text) 
 {
     std::cout << text;
+    std::cout << "displayText" << std::endl;
 }
 
 bool Display::regulateBrightness(double brightnessLevel)
 {
     bightness += brightnessLevel;
+    std::cout << "regulateBrightness" << std::endl;
+    return true;
+}
+
+bool Display::connectToMotherBoard(std::string connectorType)
+{
+    std::cout << "connectToMotherBoard " << connectorType << std::endl;
     return true;
 }
 
 struct Battery 
 {
+    Battery();
+
     float voltage = 4.7f;
     double dischargeTime = 5;
     double capacity = 150;
@@ -275,26 +343,35 @@ struct Battery
     void monitorCapacity(bool informUser = false);
 };
 
+Battery::Battery()
+{
+    std::cout << "'Battery' created" << std::endl;
+}
+
 void Battery::charge(int time)
 {
     dischargeTime += 1;
     time += 1;
+    std::cout << "charge" << std::endl;
 }
 
 void Battery::discharge(int time)
 {
     dischargeTime -= 1;
     time -= 1;
+    std::cout << "discharge" << std::endl;
 }
 
 void Battery::monitorCapacity(bool informUser)
 {
     if (informUser)
-        std::cout << "Regarded " << capacity;
+        std::cout << "Regarded " << capacity << std::endl;
 }
 
 struct OperatingSystem
 {
+    OperatingSystem();
+
     long numberOfConcurrentTask = 15785;
     std::string buildNumnber = "654f6";
     std::string version = "Apha 4";
@@ -306,25 +383,32 @@ struct OperatingSystem
     bool uninstallApplication(std::string appName);
 };
 
+OperatingSystem::OperatingSystem()
+{
+    std::cout << "'OperatingSystem' created" << std::endl;
+}
+
 void OperatingSystem::runApplication(std::string applicationName)
 {
-    std::cout << "Run : " << applicationName;
+    std::cout << "Run : " << applicationName << std::endl;
 }
 
 bool OperatingSystem::installApplication(std::string appName)
 {
-    std::cout << "Install : " << appName;
+    std::cout << "Install : " << appName << std::endl;
     return true;
 }
 
 bool OperatingSystem::uninstallApplication(std::string appName)
 {
-    std::cout << "Uninstall : " << appName;
+    std::cout << "Uninstall : " << appName << std::endl;
     return false;
 }
 
 struct Memory
 {
+    Memory();
+
     int capacity = 1524556;
     std::string accessMethod = "random access";
     std::string unitOfTransfer = "256 bits";
@@ -336,25 +420,32 @@ struct Memory
     int accessMemoryBlock(int blockLocation);
 };
 
+Memory::Memory()
+{
+    std::cout << "'Memory' created" << std::endl;
+}
+
 void Memory::loadData(int amountOfData)
 {
-    std::cout << "Load data : " << amountOfData;
+    std::cout << "Load data : " << amountOfData << std::endl;
 }
 
 void Memory::offloadData(int amountOfData, bool writeToSWAP)
 {
-    std::cout << "Offload data : " << amountOfData << "and in swap? " << writeToSWAP;
+    std::cout << "Offload data : " << amountOfData << " and in swap? " << writeToSWAP << std::endl;
 }
 
 int Memory::accessMemoryBlock(int blockLocation)
 {
-    std::cout << "Access memory block : " << blockLocation;
+    std::cout << "Access memory block : " << blockLocation << std::endl;
     return capacity;
 }
 
 
 struct Computer
 {
+    Computer();
+
     Keyboard keyboard;
     Display display;
     Battery battery;
@@ -366,21 +457,26 @@ struct Computer
     bool connectPeripherals(std::string peripheralName);
 };
 
+Computer::Computer()
+{
+    std::cout << "'Computer' created" << std::endl;
+}
+
 bool Computer::compileCode(int memorySize, std::string codeLanguage)
 {
-    std::cout << "Compile code for " << codeLanguage << " of size " << memorySize;
+    std::cout << "Compile code for " << codeLanguage << " of size " << memorySize << std::endl;
     return true;
 }
 
 bool Computer::runProductivityApp(std::string supportedOperatingSystem, std::string applicationName)
 {
-    std::cout << "Run porductivity app for " << supportedOperatingSystem << " with name " << applicationName;
+    std::cout << "Run porductivity app for " << supportedOperatingSystem << " with name " << applicationName << std::endl;
     return true;
 }
 
 bool Computer::connectPeripherals(std::string peripheralName)
 {
-    std::cout << "Connect peripheral " << peripheralName;
+    std::cout << "Connect peripheral " << peripheralName << std::endl;
     return false;
 }
 
@@ -402,6 +498,62 @@ bool Computer::connectPeripherals(std::string peripheralName)
 int main()
 {
     Example::main();
+
+    // 1.
+    Dishwasher dishwasher;
+    dishwasher.washDishes(250);
+    dishwasher.lockDoor();
+    dishwasher.informUser();
+    // 2.
+    VaccumCleaner v;
+
+    std::cout << "value of weight : " << v.weight;
+    std::cout << "value of noiseLevel : " << v.noiseLevel;
+
+    v.collectDust(2000, 100);
+    std::string message = v.informUserWhenFull();
+    std::cout << "message " << message << std::endl;
+    v.retractCord(200);
+    // 3.
+    Bicycle b;
+    b.cycleAtSpeed(120);
+    b.useBreak();
+    b.turn("right");
+    // 4.
+    Truck t;
+    t.moveFood(300);
+    t.drive(140, 20);
+    t.fitTrailer("long", 120);
+    // 5.
+    Keyboard k;
+    k.connectToMotherBoard();
+    k.encodeASCII("X");
+    k.sendCharacterSignal();
+    // 6.
+    Display d;
+    d.regulateBrightness(120);
+    d.displayText("Hello world");
+    d.connectToMotherBoard();
+    // 7.
+    Battery bt;
+    bt.charge(100);
+    bt.discharge(200);
+    bt.monitorCapacity(true);
+    // 8.
+    OperatingSystem os;
+    os.runApplication("OSX");
+    os.installApplication("xcode");
+    os.uninstallApplication("xcode");
+    // 9.
+    Memory m;
+    m.loadData(200);
+    m.offloadData(200);
+    m.accessMemoryBlock(25);
+    // 10.
+    Computer c;
+    c.compileCode(200);
+    c.runProductivityApp("windows", "winzip");
+    c.connectPeripherals("mouse");
     
     
     std::cout << "good to go!" << std::endl;
