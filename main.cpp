@@ -272,8 +272,8 @@ Keyboard::Keyboard()
 
 void Keyboard::encodeASCII(std::string character)
 {
-if (character == "x")
-    numberOfKeys = 250;
+    if (character == "x")
+        numberOfKeys = 250;
 }
 
 bool Keyboard::sendCharacterSignal()
@@ -515,45 +515,45 @@ int main()
     std::cout << "message " << message << std::endl;
     v.retractCord(200);
     // 3.
-    Bicycle b;
-    b.cycleAtSpeed(120);
-    b.useBreak();
-    b.turn("right");
+    Bicycle bicycle;
+    bicycle.cycleAtSpeed(120);
+    bicycle.useBreak();
+    bicycle.turn("right");
     // 4.
-    Truck t;
-    t.moveFood(300);
-    t.drive(140, 20);
-    t.fitTrailer("long", 120);
+    Truck truck;
+    truck.moveFood(300);
+    truck.drive(140, 20);
+    truck.fitTrailer("long", 120);
     // 5.
-    Keyboard k;
-    k.connectToMotherBoard();
-    k.encodeASCII("X");
-    k.sendCharacterSignal();
+    Keyboard keyboard;
+    keyboard.connectToMotherBoard();
+    keyboard.encodeASCII("X");
+    keyboard.sendCharacterSignal();
     // 6.
-    Display d;
-    d.regulateBrightness(120);
-    d.displayText("Hello world");
-    d.connectToMotherBoard();
+    Display display;
+    display.regulateBrightness(120);
+    display.displayText("Hello world");
+    display.connectToMotherBoard();
     // 7.
-    Battery bt;
-    bt.charge(100);
-    bt.discharge(200);
-    bt.monitorCapacity(true);
+    Battery battery;
+    battery.charge(100);
+    battery.discharge(200);
+    battery.monitorCapacity(true);
     // 8.
     OperatingSystem os;
     os.runApplication("OSX");
     os.installApplication("xcode");
     os.uninstallApplication("xcode");
     // 9.
-    Memory m;
-    m.loadData(200);
-    m.offloadData(200);
-    m.accessMemoryBlock(25);
+    Memory memory;
+    memory.loadData(200);
+    memory.offloadData(200);
+    memory.accessMemoryBlock(25);
     // 10.
-    Computer c;
-    c.compileCode(200);
-    c.runProductivityApp("windows", "winzip");
-    c.connectPeripherals("mouse");
+    Computer computer;
+    computer.compileCode(200);
+    computer.runProductivityApp("windows", "winzip");
+    computer.connectPeripherals("mouse");
     
     
     std::cout << "good to go!" << std::endl;
