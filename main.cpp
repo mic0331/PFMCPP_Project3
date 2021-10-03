@@ -170,7 +170,7 @@ void Bicycle::cycleAtSpeed(int s)
 {
     speed = s;
     std::cout << "Speed " << speed << std::endl;
-    std::cout << "cylce at speed" << std::endl;
+    std::cout << "cycle at speed" << std::endl;
 }
 
 bool Bicycle::turn(std::string direction)
@@ -208,7 +208,7 @@ Truck::Truck()
 
 void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
 {
-    std::cout << "Tupe of engine " << typeOfEngine << std::endl;
+    std::cout << "Type of engine " << typeOfEngine << std::endl;
     if (trailerType == "long" && trailerLegnth > 100)
         speedLimit = 50;
     std::cout << "fitTrailer" << std::endl;
