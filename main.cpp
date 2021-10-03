@@ -41,10 +41,11 @@ int main()
 
 struct Dishwasher
 {
-    Dishwasher();
+    //Dishwasher();
+    Dishwasher(int );
 
     double powerConsumption = 1200;
-    double inputVoltage = 220;
+    double inputVoltage { 220 };
     int ecoRating = 7;
     int amountWaterUsed = 10;
     int capacity = 10;
@@ -52,7 +53,7 @@ struct Dishwasher
     struct Dish
     {
         std::string dirtiness = "dirty";
-        int lenght = 10;
+        int length = 10;
         int height = 10;
         std::string material = "glass";
         std::string hardness = "soft";
@@ -67,18 +68,20 @@ struct Dishwasher
     bool lockDoor();
 };
 
-Dishwasher::Dishwasher()
+Dishwasher::Dishwasher(int power) : powerConsumption (power)
 {
     std::cout << "'Dishwasher' created" << std::endl;
 }
 
 void Dishwasher::washDishes(int time)
 {
+    std::cout << "Input voltage is " << inputVoltage << std::endl;
     std::cout << "clean dishes for some time " << time << std::endl;
 }
 
 void Dishwasher::informUser()
 {
+    std::cout << "Eco rating is " << ecoRating << std::endl;
     std::cout << "job finished !" << std::endl;;
 }
 
@@ -109,6 +112,7 @@ VaccumCleaner::VaccumCleaner()
 
 void VaccumCleaner::collectDust(int dustQuantity, int time)
 {
+    std::cout << "usability " << usability << std::endl;
     if (dustQuantity != 0) 
     {
         dustQuantity -= 1;
@@ -166,7 +170,8 @@ Bicycle::Bicycle()
 void Bicycle::cycleAtSpeed(int s)
 {
     speed = s;
-    std::cout << "cylce at speed" << std::endl;
+    std::cout << "Speed " << speed << std::endl;
+    std::cout << "cycle at speed" << std::endl;
 }
 
 bool Bicycle::turn(std::string direction)
@@ -184,26 +189,28 @@ bool Bicycle::useBreak()
 
 struct Truck
 {
-    Truck(); 
+    Truck(int speedLimit, int weight);
 
     int numberOfAxle = 4;
     std::string typeOfEngine = "diesel";
     std::string color = "Pink";
     int speedLimit = 90;
     double weight = 1530.00;
+    unsigned int y;
 
     void fitTrailer(std::string trailerType, int trailerLegnth);
     bool moveFood(int quantity);
     void drive(int speed, int distance);
 };
 
-Truck::Truck()
+Truck::Truck(int speed, int truckWeight) : speedLimit (speed), weight(truckWeight)
 {
     std::cout << "'Truck' created" << std::endl;
 }
 
 void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
 {
+    std::cout << "Type of engine " << typeOfEngine << std::endl;
     if (trailerType == "long" && trailerLegnth > 100)
         speedLimit = 50;
     std::cout << "fitTrailer" << std::endl;
@@ -223,7 +230,6 @@ void Truck::drive(int speed, int distance)
 
 struct Keyboard
 {
-    Keyboard();
 
     int numberOfKeys = 120;
     float travellingDistance = 1.35f;
@@ -231,15 +237,16 @@ struct Keyboard
     int width = 128;
     int height = 95;
 
+    Keyboard() : power(300)
+    {
+        std::cout << "power " << power << std::endl;
+        std::cout << "'Keyboard' created" << std::endl;
+    }
+
     void encodeASCII(std::string character);
     bool sendCharacterSignal();
     bool connectToMotherBoard(std::string connectorType = "GPIO");
 };
-
-Keyboard::Keyboard()
-{
-    std::cout << "'Keyboard' created" << std::endl;
-}
 
 void Keyboard::encodeASCII(std::string character)
 {
@@ -262,21 +269,22 @@ bool Keyboard::connectToMotherBoard(std::string connectorType)
 
 struct Display
 {
-    Display();
-
     int numberPixels = 1800;
     float powerConsumed = 180.f;
     double bightness = 70;
     int width = 250;
     int height = 100;
 
+    Display();
+
     void displayText(std::string text);
     bool regulateBrightness(double brightnessLevel);
     bool connectToMotherBoard(std::string connectorType = "HDMI");
 };
 
-Display::Display()
+Display::Display() : numberPixels {120} 
 {
+    std::cout << "Power consumed " << powerConsumed << std::endl;
     std::cout << "'Display' created" << std::endl;
 }
 
@@ -313,7 +321,6 @@ struct Battery
     void discharge(int time);
     void monitorCapacity(bool informUser = false);
 };
-
 Battery::Battery()
 {
     std::cout << "'Battery' created" << std::endl;
@@ -321,9 +328,7 @@ Battery::Battery()
 
 void Battery::charge(int time)
 {
-    dischargeTime += 1;
-    time += 1;
-    std::cout << "charge" << std::endl;
+    std::cout << "Charge in " << time << std::endl;
 }
 
 void Battery::discharge(int time)
@@ -361,6 +366,7 @@ OperatingSystem::OperatingSystem()
 
 void OperatingSystem::runApplication(std::string applicationName)
 {
+    std::cout << "provider " << provider << std::endl;
     std::cout << "Run : " << applicationName << std::endl;
 }
 
@@ -383,7 +389,7 @@ struct Memory
     int capacity = 1524556;
     std::string accessMethod = "random access";
     std::string unitOfTransfer = "256 bits";
-    int lenght = 100;
+    int length = 100;
     int performance = 150;
 
     void loadData(int amountOfData);
@@ -393,11 +399,14 @@ struct Memory
 
 Memory::Memory()
 {
+    capacity = 12000;
+    length = 90;
     std::cout << "'Memory' created" << std::endl;
 }
 
 void Memory::loadData(int amountOfData)
 {
+    std::cout << "accessMethod " << accessMethod << std::endl;
     std::cout << "Load data : " << amountOfData << std::endl;
 }
 
@@ -435,6 +444,7 @@ Computer::Computer()
 
 bool Computer::compileCode(int memorySize, std::string codeLanguage)
 {
+    std::cout << "memory -> length :: " << memory.capacity << std::endl;
     std::cout << "Compile code for " << codeLanguage << " of size " << memorySize << std::endl;
     return true;
 }
@@ -471,15 +481,15 @@ int main()
     Example::main();
 
     // 1.
-    Dishwasher dishwasher;
+    Dishwasher dishwasher (1500);
     dishwasher.washDishes(250);
     dishwasher.lockDoor();
     dishwasher.informUser();
     // 2.
     VaccumCleaner v;
 
-    std::cout << "value of weight : " << v.weight;
-    std::cout << "value of noiseLevel : " << v.noiseLevel;
+    std::cout << "value of weight : " << v.weight << std::endl;
+    std::cout << "value of noiseLevel : " << v.noiseLevel<< std::endl;
 
     v.collectDust(2000, 100);
     std::string message = v.informUserWhenFull();
@@ -491,7 +501,7 @@ int main()
     bicycle.useBreak();
     bicycle.turn("right");
     // 4.
-    Truck truck;
+    Truck truck (120, 4565);
     truck.moveFood(300);
     truck.drive(140, 20);
     truck.fitTrailer("long", 120);
