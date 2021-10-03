@@ -188,13 +188,15 @@ bool Bicycle::useBreak()
 
 struct Truck
 {
-    Truck(); 
+    Truck();
+    Truck(int maxSpeed, int weight); 
 
     int numberOfAxle = 4;
     std::string typeOfEngine = "diesel";
     std::string color = "Pink";
     int speedLimit = 90;
     double weight = 1530.00;
+    unsigned int y;
 
     void fitTrailer(std::string trailerType, int trailerLegnth);
     bool moveFood(int quantity);
@@ -203,7 +205,15 @@ struct Truck
 
 Truck::Truck()
 {
+    speedLimit = 100;
+    weight = 400;
     std::cout << "'Truck' created" << std::endl;
+}
+
+Truck::Truck(int maxSpeed, int weight)
+{
+    speedLimit = maxSpeed;
+    weight = weight;
 }
 
 void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
@@ -402,6 +412,8 @@ struct Memory
 
 Memory::Memory()
 {
+    capacity = 12000;
+    lenght = 90;
     std::cout << "'Memory' created" << std::endl;
 }
 
