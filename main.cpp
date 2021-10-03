@@ -189,7 +189,7 @@ bool Bicycle::useBreak()
 
 struct Truck
 {
-    Truck();
+    Truck(int speedLimit, int weight);
 
     int numberOfAxle = 4;
     std::string typeOfEngine = "diesel";
@@ -203,10 +203,8 @@ struct Truck
     void drive(int speed, int distance);
 };
 
-Truck::Truck()
+Truck::Truck(int speed, int truckWeight) : speedLimit (speed), weight(truckWeight)
 {
-    speedLimit = 100;
-    weight = 400;
     std::cout << "'Truck' created" << std::endl;
 }
 
@@ -503,7 +501,7 @@ int main()
     bicycle.useBreak();
     bicycle.turn("right");
     // 4.
-    Truck truck;
+    Truck truck (120, 4565);
     truck.moveFood(300);
     truck.drive(140, 20);
     truck.fitTrailer("long", 120);
