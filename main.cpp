@@ -44,7 +44,7 @@ struct Dishwasher
     Dishwasher();
 
     double powerConsumption = 1200;
-    double inputVoltage = 220;
+    double inputVoltage { 220 };
     int ecoRating = 7;
     int amountWaterUsed = 10;
     int capacity = 10;
@@ -74,11 +74,13 @@ Dishwasher::Dishwasher()
 
 void Dishwasher::washDishes(int time)
 {
+    std::cout << "Input voltage is " << inputVoltage << std::endl;
     std::cout << "clean dishes for some time " << time << std::endl;
 }
 
 void Dishwasher::informUser()
 {
+    std::cout << "Eco rating is " << ecoRating << std::endl;
     std::cout << "job finished !" << std::endl;;
 }
 
@@ -109,6 +111,7 @@ VaccumCleaner::VaccumCleaner()
 
 void VaccumCleaner::collectDust(int dustQuantity, int time)
 {
+    std::cout << "usability " << usability << std::endl;
     if (dustQuantity != 0) 
     {
         dustQuantity -= 1;
@@ -166,6 +169,7 @@ Bicycle::Bicycle()
 void Bicycle::cycleAtSpeed(int s)
 {
     speed = s;
+    std::cout << "Speed " << speed << std::endl;
     std::cout << "cylce at speed" << std::endl;
 }
 
@@ -204,6 +208,7 @@ Truck::Truck()
 
 void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
 {
+    std::cout << "Tupe of engine " << typeOfEngine << std::endl;
     if (trailerType == "long" && trailerLegnth > 100)
         speedLimit = 50;
     std::cout << "fitTrailer" << std::endl;
@@ -238,6 +243,7 @@ struct Keyboard
 
 Keyboard::Keyboard()
 {
+    std::cout << "power " << power << std::endl;
     std::cout << "'Keyboard' created" << std::endl;
 }
 
@@ -277,6 +283,7 @@ struct Display
 
 Display::Display()
 {
+    std::cout << "Power consumed " << powerConsumed << std::endl;
     std::cout << "'Display' created" << std::endl;
 }
 
@@ -321,6 +328,7 @@ Battery::Battery()
 
 void Battery::charge(int time)
 {
+    std::cout << "powerDensity " << powerDensity << std::endl;
     dischargeTime += 1;
     time += 1;
     std::cout << "charge" << std::endl;
@@ -361,6 +369,7 @@ OperatingSystem::OperatingSystem()
 
 void OperatingSystem::runApplication(std::string applicationName)
 {
+    std::cout << "provider " << provider << std::endl;
     std::cout << "Run : " << applicationName << std::endl;
 }
 
@@ -398,6 +407,7 @@ Memory::Memory()
 
 void Memory::loadData(int amountOfData)
 {
+    std::cout << "accessMethod " << accessMethod << std::endl;
     std::cout << "Load data : " << amountOfData << std::endl;
 }
 
@@ -435,6 +445,7 @@ Computer::Computer()
 
 bool Computer::compileCode(int memorySize, std::string codeLanguage)
 {
+    std::cout << "memory -> length :: " << memory.capacity << std::endl;
     std::cout << "Compile code for " << codeLanguage << " of size " << memorySize << std::endl;
     return true;
 }
