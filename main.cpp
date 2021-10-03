@@ -210,10 +210,10 @@ Truck::Truck()
     std::cout << "'Truck' created" << std::endl;
 }
 
-Truck::Truck(int maxSpeed, int weight)
+Truck::Truck(int maxSpeed, int truckWeight)
 {
     speedLimit = maxSpeed;
-    weight = weight;
+    weight = truckWeight;
 }
 
 void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
@@ -238,7 +238,6 @@ void Truck::drive(int speed, int distance)
 
 struct Keyboard
 {
-    Keyboard();
 
     int numberOfKeys = 120;
     float travellingDistance = 1.35f;
@@ -246,16 +245,16 @@ struct Keyboard
     int width = 128;
     int height = 95;
 
+    Keyboard() : power(300)
+    {
+        std::cout << "power " << power << std::endl;
+        std::cout << "'Keyboard' created" << std::endl;
+    }
+
     void encodeASCII(std::string character);
     bool sendCharacterSignal();
     bool connectToMotherBoard(std::string connectorType = "GPIO");
 };
-
-Keyboard::Keyboard()
-{
-    std::cout << "power " << power << std::endl;
-    std::cout << "'Keyboard' created" << std::endl;
-}
 
 void Keyboard::encodeASCII(std::string character)
 {
@@ -278,20 +277,20 @@ bool Keyboard::connectToMotherBoard(std::string connectorType)
 
 struct Display
 {
-    Display();
-
     int numberPixels = 1800;
     float powerConsumed = 180.f;
     double bightness = 70;
     int width = 250;
     int height = 100;
 
+    Display();
+
     void displayText(std::string text);
     bool regulateBrightness(double brightnessLevel);
     bool connectToMotherBoard(std::string connectorType = "HDMI");
 };
 
-Display::Display()
+Display::Display() : numberPixels {120} 
 {
     std::cout << "Power consumed " << powerConsumed << std::endl;
     std::cout << "'Display' created" << std::endl;
