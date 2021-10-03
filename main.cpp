@@ -500,8 +500,8 @@ int main()
     // 2.
     VaccumCleaner v;
 
-    std::cout << "value of weight : " << v.weight;
-    std::cout << "value of noiseLevel : " << v.noiseLevel;
+    std::cout << "value of weight : " << v.weight << std::endl;
+    std::cout << "value of noiseLevel : " << v.noiseLevel<< std::endl;
 
     v.collectDust(2000, 100);
     std::string message = v.informUserWhenFull();
