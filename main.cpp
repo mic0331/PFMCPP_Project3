@@ -41,7 +41,8 @@ int main()
 
 struct Dishwasher
 {
-    Dishwasher();
+    //Dishwasher();
+    Dishwasher(int );
 
     double powerConsumption = 1200;
     double inputVoltage { 220 };
@@ -52,7 +53,7 @@ struct Dishwasher
     struct Dish
     {
         std::string dirtiness = "dirty";
-        int lenght = 10;
+        int length = 10;
         int height = 10;
         std::string material = "glass";
         std::string hardness = "soft";
@@ -67,7 +68,7 @@ struct Dishwasher
     bool lockDoor();
 };
 
-Dishwasher::Dishwasher()
+Dishwasher::Dishwasher(int power) : powerConsumption (power)
 {
     std::cout << "'Dishwasher' created" << std::endl;
 }
@@ -189,7 +190,6 @@ bool Bicycle::useBreak()
 struct Truck
 {
     Truck();
-    Truck(int maxSpeed, int weight); 
 
     int numberOfAxle = 4;
     std::string typeOfEngine = "diesel";
@@ -208,12 +208,6 @@ Truck::Truck()
     speedLimit = 100;
     weight = 400;
     std::cout << "'Truck' created" << std::endl;
-}
-
-Truck::Truck(int maxSpeed, int truckWeight)
-{
-    speedLimit = maxSpeed;
-    weight = truckWeight;
 }
 
 void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
@@ -329,7 +323,6 @@ struct Battery
     void discharge(int time);
     void monitorCapacity(bool informUser = false);
 };
-
 Battery::Battery()
 {
     std::cout << "'Battery' created" << std::endl;
@@ -337,10 +330,7 @@ Battery::Battery()
 
 void Battery::charge(int time)
 {
-    std::cout << "powerDensity " << powerDensity << std::endl;
-    dischargeTime += 1;
-    time += 1;
-    std::cout << "charge" << std::endl;
+    std::cout << "Charge in " << time << std::endl;
 }
 
 void Battery::discharge(int time)
@@ -401,7 +391,7 @@ struct Memory
     int capacity = 1524556;
     std::string accessMethod = "random access";
     std::string unitOfTransfer = "256 bits";
-    int lenght = 100;
+    int length = 100;
     int performance = 150;
 
     void loadData(int amountOfData);
@@ -412,7 +402,7 @@ struct Memory
 Memory::Memory()
 {
     capacity = 12000;
-    lenght = 90;
+    length = 90;
     std::cout << "'Memory' created" << std::endl;
 }
 
@@ -493,7 +483,7 @@ int main()
     Example::main();
 
     // 1.
-    Dishwasher dishwasher;
+    Dishwasher dishwasher (1500);
     dishwasher.washDishes(250);
     dishwasher.lockDoor();
     dishwasher.informUser();
