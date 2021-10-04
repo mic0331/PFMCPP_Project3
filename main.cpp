@@ -184,9 +184,8 @@ void VaccumCleaner::doesSomethingInteresting()
     int x = 6;
     while (x >= 0) {
         std::cout << "Value of x --> " << x << std::endl;
-        for (int i=0; i>=5; i++) {
+        for (int i=0; i>=5; i++)
             std::cout << "Value of i --> " << i << std::endl;
-        }
         x -= 1;
     }   
 }
