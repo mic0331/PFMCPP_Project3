@@ -43,7 +43,7 @@ struct Foo
         Bar bar(startingVal);                //2a)
         while( bar.num < threshold )         //2a) 
         { 
-            bar.num += 1;                    //2a)
+            ++bar.num;                    //2a)
             std::cout << "  increasing bar.num: " << bar.num << std::endl; //4)
             if( bar.num >= threshold )       //2b)
                 return bar;
@@ -125,8 +125,9 @@ void Dishwasher::doesSomethingInteresting()
 {
     int inc = 0;
     std::cout << "'inc' initialized with value " << inc << std::endl;
-    for (int i=0; i < 5; i++) {        
-        inc+= 5;
+    for (int i = 0; i < 5; ++i) 
+    {        
+        inc += 5;
         std::cout << "'inc' incremented by 5 --> " << inc << std::endl;
     }
     std::cout << "'inc' Final value " << inc << std::endl;
@@ -182,9 +183,10 @@ std::string VaccumCleaner::informUserWhenFull()
 void VaccumCleaner::doesSomethingInteresting()
 {
     int x = 6;
-    while (x >= 0) {
+    while (x >= 0) 
+    {
         std::cout << "Value of x --> " << x << std::endl;
-        for (int i=0; i>=5; i++)
+        for (int i=0; i>=5; ++i)
             std::cout << "Value of i --> " << i << std::endl;
         x -= 1;
     }   
@@ -246,9 +248,11 @@ void Bicycle::doesSomethingInteresting(int variableA)
 {
     if (variableA >= 5)
         std::cout << "Value is too big" << std::endl;
-    for(;;) {
-        if (variableA >= 5) break;
-        variableA +=1;
+    for(;;) 
+    {
+        if (variableA >= 5) 
+            break;
+        ++ variableA;
         std::cout << "`variableA` --> " << variableA << std::endl;
     }
 }
@@ -299,9 +303,11 @@ int Truck::doesSomethingInteresting()
 {
     bool flag = true;
     int x = 0;
-    while(flag) {        
-        if (x >= 3) flag = false;
-        x += 1;
+    while(flag) 
+    {        
+        if (x >= 3) 
+            flag = false;
+        ++ x;
     }
     return x;
 }
@@ -335,7 +341,7 @@ void Keyboard::encodeASCII(std::string character)
 
 bool Keyboard::sendCharacterSignal()
 {
-    power += 1;
+    ++ power;
     std::cout << "sendCharacterSignal" << std::endl;
     return true;
 }
@@ -348,7 +354,8 @@ bool Keyboard::connectToMotherBoard(std::string connectorType)
 
 void Keyboard::printMessage()
 {
-    for (int x = 0; x <= 5; x++) {
+    for (int x = 0; x <= 5; ++x) 
+    {
         std::cout << "Value of x --> " << x << std::endl;
         x += 1;
     }
@@ -397,7 +404,8 @@ bool Display::connectToMotherBoard(std::string connectorType)
 
 void Display::printMessage()
 {
-    for (int x = 0; x <= 5; x++) {
+    for (int x = 0; x <= 5; ++x) 
+    {
         std::cout << "Value of x --> " << x << std::endl;
         x += 1;
     }
@@ -443,7 +451,8 @@ void Battery::monitorCapacity(bool informUser)
 
 void Battery::printMessage()
 {
-    for (int x = 0; x <= 5; x++) {
+    for (int x = 0; x <= 5; ++x) 
+    {
         std::cout << "Value of x --> " << x << std::endl;
         x += 1;
     }
@@ -490,7 +499,8 @@ bool OperatingSystem::uninstallApplication(std::string appName)
 
 void OperatingSystem::printMessage()
 {
-    for (int x = 0; x <= 5; x++) {
+    for (int x = 0; x <= 5; ++x) 
+    {
         std::cout << "Value of x --> " << x << std::endl;
         x += 1;
         numberOfConcurrentTask += x;
@@ -539,7 +549,8 @@ int Memory::accessMemoryBlock(int blockLocation)
 
 void Memory::printMessage()
 {
-    for (int x = 0; x <= 5; x++) {
+    for (int x = 0; x <= 5; ++x) 
+    {
         if (!(capacity % 2))
             capacity = 0;
         std::cout << "Value of x --> " << x << std::endl;
@@ -590,9 +601,9 @@ bool Computer::connectPeripherals(std::string peripheralName)
 
 void Computer::printMessage()
 {
-    for (int x = 0; x <= 5; x++) {
+    for (int x = 0; x <= 5; ++x) 
+    {
         std::cout << "Value of x --> " << x << std::endl;
-        x += 1;
     }
 }
 
