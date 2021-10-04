@@ -96,6 +96,7 @@ struct Dishwasher
     void washDishes(int time);
     void informUser();
     bool lockDoor();
+    void doesSomethingInteresting();
 };
 
 Dishwasher::Dishwasher(int power) : powerConsumption (power)
@@ -120,6 +121,17 @@ bool Dishwasher::lockDoor()
     return true;
 }
 
+void Dishwasher::doesSomethingInteresting()
+{
+    int inc = 0;
+    std::cout << "'inc' initialized with value " << inc << std::endl;
+    for (int i=0; i < 5; i++) {        
+        inc+= 5;
+        std::cout << "'inc' incremented by 5 --> " << inc << std::endl;
+    }
+    std::cout << "'inc' Final value " << inc << std::endl;
+}
+
 struct VaccumCleaner
 {
     VaccumCleaner();
@@ -133,6 +145,7 @@ struct VaccumCleaner
     void collectDust(int dustQuantity, int time);
     bool retractCord(int cordDistance);
     std::string informUserWhenFull();
+    void doesSomethingInteresting();
 };
 
 VaccumCleaner::VaccumCleaner()
@@ -166,6 +179,18 @@ std::string VaccumCleaner::informUserWhenFull()
     return "hello";
 }
 
+void VaccumCleaner::doesSomethingInteresting()
+{
+    int x = 6;
+    while (x >= 0) {
+        std::cout << "Value of x --> " << x << std::endl;
+        for (int i=0; i>=5; i++) {
+            std::cout << "Value of i --> " << i << std::endl;
+        }
+        x -= 1;
+    }   
+}
+
 struct Bicycle
 {
     Bicycle();
@@ -190,6 +215,7 @@ struct Bicycle
     void cycleAtSpeed(int speed);
     bool turn(std::string direction = "left");
     bool useBreak();
+    void doesSomethingInteresting(int variableA);
 };
 
 Bicycle::Bicycle()
@@ -217,6 +243,17 @@ bool Bicycle::useBreak()
     return true;
 }
 
+void Bicycle::doesSomethingInteresting(int variableA)
+{
+    if (variableA >= 5)
+        std::cout << "Value is too big" << std::endl;
+    for(;;) {
+        if (variableA >= 5) break;
+        variableA +=1;
+        std::cout << "`variableA` --> " << variableA << std::endl;
+    }
+}
+
 struct Truck
 {
     Truck(int speedLimit, int weight);
@@ -231,6 +268,7 @@ struct Truck
     void fitTrailer(std::string trailerType, int trailerLegnth);
     bool moveFood(int quantity);
     void drive(int speed, int distance);
+    int doesSomethingInteresting();
 };
 
 Truck::Truck(int speed, int truckWeight) : speedLimit (speed), weight(truckWeight)
@@ -258,6 +296,17 @@ void Truck::drive(int speed, int distance)
     std::cout << "drive at " << speed << "for " << distance << std::endl;
 }
 
+int Truck::doesSomethingInteresting()
+{
+    bool flag = true;
+    int x = 0;
+    while(flag) {        
+        if (x >= 3) flag = false;
+        x += 1;
+    }
+    return x;
+}
+
 struct Keyboard
 {
 
@@ -276,6 +325,7 @@ struct Keyboard
     void encodeASCII(std::string character);
     bool sendCharacterSignal();
     bool connectToMotherBoard(std::string connectorType = "GPIO");
+    void printMessage();
 };
 
 void Keyboard::encodeASCII(std::string character)
@@ -297,6 +347,14 @@ bool Keyboard::connectToMotherBoard(std::string connectorType)
     return true;
 }
 
+void Keyboard::printMessage()
+{
+    for (int x = 0; x <= 5; x++) {
+        std::cout << "Value of x --> " << x << std::endl;
+        x += 1;
+    }
+}
+
 struct Display
 {
     int numberPixels = 1800;
@@ -310,6 +368,7 @@ struct Display
     void displayText(std::string text);
     bool regulateBrightness(double brightnessLevel);
     bool connectToMotherBoard(std::string connectorType = "HDMI");
+    void printMessage();
 };
 
 Display::Display() : numberPixels {120} 
@@ -337,6 +396,14 @@ bool Display::connectToMotherBoard(std::string connectorType)
     return true;
 }
 
+void Display::printMessage()
+{
+    for (int x = 0; x <= 5; x++) {
+        std::cout << "Value of x --> " << x << std::endl;
+        x += 1;
+    }
+}
+
 struct Battery 
 {
     Battery();
@@ -350,6 +417,7 @@ struct Battery
     void charge(int time);
     void discharge(int time);
     void monitorCapacity(bool informUser = false);
+    void printMessage();
 };
 Battery::Battery()
 {
@@ -374,6 +442,14 @@ void Battery::monitorCapacity(bool informUser)
         std::cout << "Regarded " << capacity << std::endl;
 }
 
+void Battery::printMessage()
+{
+    for (int x = 0; x <= 5; x++) {
+        std::cout << "Value of x --> " << x << std::endl;
+        x += 1;
+    }
+}
+
 struct OperatingSystem
 {
     OperatingSystem();
@@ -387,6 +463,7 @@ struct OperatingSystem
     void runApplication(std::string applicationName);
     bool installApplication(std::string appName);
     bool uninstallApplication(std::string appName);
+    void printMessage();
 };
 
 OperatingSystem::OperatingSystem()
@@ -412,6 +489,15 @@ bool OperatingSystem::uninstallApplication(std::string appName)
     return false;
 }
 
+void OperatingSystem::printMessage()
+{
+    for (int x = 0; x <= 5; x++) {
+        std::cout << "Value of x --> " << x << std::endl;
+        x += 1;
+        numberOfConcurrentTask += x;
+    }
+}
+
 struct Memory
 {
     Memory();
@@ -425,6 +511,7 @@ struct Memory
     void loadData(int amountOfData);
     void offloadData(int amountOfData, bool writeToSWAP = false);
     int accessMemoryBlock(int blockLocation);
+    void printMessage();
 };
 
 Memory::Memory()
@@ -451,6 +538,16 @@ int Memory::accessMemoryBlock(int blockLocation)
     return capacity;
 }
 
+void Memory::printMessage()
+{
+    for (int x = 0; x <= 5; x++) {
+        if (!(capacity % 2))
+            capacity = 0;
+        std::cout << "Value of x --> " << x << std::endl;
+        x += 1;
+    }
+}
+
 
 struct Computer
 {
@@ -465,6 +562,7 @@ struct Computer
     bool compileCode(int memorySize, std::string codeLanguage = "c++");
     bool runProductivityApp(std::string supportedOperatingSystem, std::string applicationName);
     bool connectPeripherals(std::string peripheralName);
+    void printMessage();
 };
 
 Computer::Computer()
@@ -491,6 +589,14 @@ bool Computer::connectPeripherals(std::string peripheralName)
     return false;
 }
 
+void Computer::printMessage()
+{
+    for (int x = 0; x <= 5; x++) {
+        std::cout << "Value of x --> " << x << std::endl;
+        x += 1;
+    }
+}
+
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -515,56 +621,71 @@ int main()
     dishwasher.washDishes(250);
     dishwasher.lockDoor();
     dishwasher.informUser();
+    dishwasher.doesSomethingInteresting();
     // 2.
-    VaccumCleaner v;
+    VaccumCleaner vaccumCleaner;
 
-    std::cout << "value of weight : " << v.weight << std::endl;
-    std::cout << "value of noiseLevel : " << v.noiseLevel<< std::endl;
+    std::cout << "value of weight : " << vaccumCleaner.weight << std::endl;
+    std::cout << "value of noiseLevel : " << vaccumCleaner.noiseLevel<< std::endl;
 
-    v.collectDust(2000, 100);
-    std::string message = v.informUserWhenFull();
+    vaccumCleaner.collectDust(2000, 100);
+    std::string message = vaccumCleaner.informUserWhenFull();
     std::cout << "message " << message << std::endl;
-    v.retractCord(200);
+    vaccumCleaner.retractCord(200);
+    vaccumCleaner.doesSomethingInteresting();
     // 3.
     Bicycle bicycle;
     bicycle.cycleAtSpeed(120);
     bicycle.useBreak();
     bicycle.turn("right");
+    bicycle.doesSomethingInteresting(125);
+    bicycle.doesSomethingInteresting(2);
     // 4.
     Truck truck (120, 4565);
     truck.moveFood(300);
     truck.drive(140, 20);
     truck.fitTrailer("long", 120);
+    std::cout << "Final value of X for Truck --> " << truck.doesSomethingInteresting() << std::endl;
     // 5.
     Keyboard keyboard;
     keyboard.connectToMotherBoard();
     keyboard.encodeASCII("X");
     keyboard.sendCharacterSignal();
+    keyboard.printMessage();
     // 6.
     Display display;
     display.regulateBrightness(120);
     display.displayText("Hello world");
     display.connectToMotherBoard();
+    display.printMessage();
     // 7.
     Battery battery;
     battery.charge(100);
     battery.discharge(200);
     battery.monitorCapacity(true);
+    battery.printMessage();
     // 8.
     OperatingSystem os;
     os.runApplication("OSX");
     os.installApplication("xcode");
     os.uninstallApplication("xcode");
+    std::cout << "numberOfConcurrentTask before loop --> " << os.numberOfConcurrentTask << std::endl;
+    os.printMessage();
+    std::cout << "numberOfConcurrentTask after loop --> " << os.numberOfConcurrentTask << std::endl;
     // 9.
     Memory memory;
     memory.loadData(200);
     memory.offloadData(200);
     memory.accessMemoryBlock(25);
+    std::cout << "capacity before loop --> " << memory.capacity << std::endl;
+    memory.printMessage();
+    std::cout << "capacity after loop --> " << memory.capacity << std::endl;
     // 10.
     Computer computer;
     computer.compileCode(200);
     computer.runProductivityApp("windows", "winzip");
     computer.connectPeripherals("mouse");
+    computer.printMessage();
     
     
     std::cout << "good to go!" << std::endl;
