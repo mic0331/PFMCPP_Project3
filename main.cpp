@@ -169,6 +169,7 @@ bool VaccumCleaner::retractCord(int cordDistance)
 {
     if (cordLength == 0) 
         return false;
+
     cordLength -= cordDistance;
     std::cout << "retractCord" << std::endl;
     return true;
@@ -186,8 +187,10 @@ void VaccumCleaner::doesSomethingInteresting()
     while (x >= 0) 
     {
         std::cout << "Value of x --> " << x << std::endl;
-        for (int i=0; i>=5; ++i)
+
+        for (int i = 0; i >= 5; ++i)
             std::cout << "Value of i --> " << i << std::endl;
+
         x -= 1;
     }   
 }
@@ -248,10 +251,12 @@ void Bicycle::doesSomethingInteresting(int variableA)
 {
     if (variableA >= 5)
         std::cout << "Value is too big" << std::endl;
+
     for(;;) 
     {
         if (variableA >= 5) 
             break;
+
         ++ variableA;
         std::cout << "`variableA` --> " << variableA << std::endl;
     }
@@ -282,8 +287,10 @@ Truck::Truck(int speed, int truckWeight) : speedLimit (speed), weight(truckWeigh
 void Truck::fitTrailer(std::string trailerType, int trailerLegnth)
 {
     std::cout << "Type of engine " << typeOfEngine << std::endl;
+
     if (trailerType == "long" && trailerLegnth > 100)
         speedLimit = 50;
+
     std::cout << "fitTrailer" << std::endl;
     // do some other stuff ...
 }
@@ -307,6 +314,7 @@ int Truck::doesSomethingInteresting()
     {        
         if (x >= 3) 
             flag = false;
+
         ++ x;
     }
     return x;
@@ -553,6 +561,7 @@ void Memory::printMessage()
     {
         if (!(capacity % 2))
             capacity = 0;
+            
         std::cout << "Value of x --> " << x << std::endl;
         x += 1;
     }
